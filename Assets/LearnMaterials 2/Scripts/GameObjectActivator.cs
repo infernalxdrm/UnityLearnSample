@@ -2,12 +2,15 @@
 using UnityEngine;
 
 /// <summary>
-/// Задаёт указанным объектам значение activeSalfe, равное state
+/// Задаёт указанным объектам значение activeSafe, равное state
 /// </summary>
 [HelpURL("https://docs.google.com/document/d/1GP4_m0MzOF8L5t5pZxLChu3V_TFIq1czi1oJQ2X5kpU/edit?usp=sharing")]
 public class GameObjectActivator : MonoBehaviour
 {
+    [Header("Игровой Объект")]
+    [SerializeField]
     private List<StateContainer> targets;
+    [SerializeField]
     private bool debug;
 
     private void Awake()
@@ -17,6 +20,7 @@ public class GameObjectActivator : MonoBehaviour
             item.defaultValue = item.targetGO.activeSelf;
         }
     }
+    [ContextMenu("Активировать объекты")]
     public void ActivateModule()
     {
         SetStateForAll();
